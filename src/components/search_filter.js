@@ -6,6 +6,7 @@ import {
 Segment
 } from 'semantic-ui-react'
 import FilterButtons from './filter_buttons';
+import Filters from './filters';
 class SearchFilter extends Component {
 
 	constructor(props) {
@@ -18,9 +19,10 @@ class SearchFilter extends Component {
 
   render() {
     return (
-     	<Segment>
+     	<span>
         <FilterButtons data={this.props.data}/>
-     	</Segment>
+        <Filters/>
+     	</span>
     );
   }
 }
