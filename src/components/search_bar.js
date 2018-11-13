@@ -67,7 +67,7 @@ class SearchBar extends Component {
 				<Grid.Column>
 				<Input 
 				type='text' 
-				placeholder='Search...'
+				placeholder='Job title, keyword or company name ...'
 				className="search_input"
 				onChange={(e)=>this.props.set_searchquery(e.target.value)}
 				action={{ 

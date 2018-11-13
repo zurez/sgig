@@ -27,13 +27,24 @@ class GigBoxes extends Component {
 	}
 
   render() {
-  	console.log({data:this.props.data})
+  	
     return (
     	<Grid
     	stackable
     	columns={3}
     	>
+    	<Grid.Row>
+    		<Grid.Column>
+    			<h3>{
+    				(this.props.data && this.props.data.length>0)?
+    				`${this.props.data.length} results found out of 25`:
+    				`No results...`
+    				}</h3>
+    		</Grid.Column>
+    	</Grid.Row>
+    	<Grid.Row>
       	{this.gb()}
+      	</Grid.Row>
       </Grid>
     );
   }
