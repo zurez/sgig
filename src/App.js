@@ -45,10 +45,11 @@ class App extends Component {
         filters[tag]=[element]
       }
       
-      this.setState({filters})
+      this.setState({filters},()=>this.do_search())
   }
   reset_filter(){
-    this.setState({filters:[]})
+    const filters=[]
+    this.setState({filters},()=>this.do_search())
   }
 
   remove_filter(element){
@@ -60,7 +61,7 @@ class App extends Component {
       let elements=filters[tag].filter((e,i)=> e!=element)
       filters[tag]=elements
     
-      this.setState({filters})
+      this.setState({filters},()=>this.do_search())
 
     }
     catch(e){
