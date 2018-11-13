@@ -19,14 +19,17 @@ class FilterButtons extends Component {
 	buttons(){
 		const data=(this.props.data)?this.props.data:{}
 		const values= [].concat(...Object.values(data))
+    
 		return(
 			values.map((e,i)=>{
 				return(<Button 
+          key={`bnbnb_${i}`}
 					className="filter_button"
 					icon
  					size="tiny"
  					compact
-					labelPosition="right" >
+					labelPosition="right" 
+          onClick={()=>this.props.remove_filter(e)}>
 					{e}  <Icon name='close' size="small"/>
 					</Button>)
 			})
@@ -50,6 +53,7 @@ class FilterButtons extends Component {
       		className="clearing pull-right clear-all"
       		size="tiny"
       		basic
+          onClick={()=>this.props.reset_filter()}
       		>
       		CLEAR ALL</Button>
       		</Grid.Column>

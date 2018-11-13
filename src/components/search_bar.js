@@ -10,6 +10,15 @@ Search,Button
 } from 'semantic-ui-react';
 
 class SearchBar extends Component {
+
+	constructor(props){
+		super(props)
+		this.search_input=React.createRef()
+	}
+	handleClick(e){
+		this.props.search()
+	}
+
   render() {
     return (
     	
@@ -60,8 +69,9 @@ class SearchBar extends Component {
 				type='text' 
 				placeholder='Search...'
 				className="search_input"
+				onChange={(e)=>this.props.set_searchquery(e.target.value)}
 				action={{ 
-				
+					onClick:this.handleClick.bind(this),
 					color:"red",
 					content: 'Search' }}
 				 />

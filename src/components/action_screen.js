@@ -26,31 +26,39 @@ class ActionScreen extends Component {
   }
   render() {
     return (
+      <span>
+      <br/>
       <Grid
       columns={2}
       stackable
       padded
       >
       	<Grid.Column
-      	computer={6}
+      	computer={5}
       	mobile={16}
       	tablet={6}
      
       	>
         <Segment>
-          <SearchFilter data={this.state.data}/>
+          <SearchFilter data={this.state.data}
+          filters={this.props.filters}
+          set_filter1={this.props.set_filter}
+          reset_filter={this.props.reset_filter}
+          remove_filter={this.props.remove_filter}
+          />
 
         </Segment>
       	</Grid.Column>
       	<Grid.Column
-      	computer={10}
+      	computer={11}
       	mobile={16}
       	tablet={10}
       	
       	>
-        <GigBoxes data={this.state.gigs}/>
+        <GigBoxes data={this.props.search_result}/>
       	</Grid.Column>
       </Grid>
+      </span>
     );
   }
 }

@@ -20,8 +20,13 @@ class SearchFilter extends Component {
   render() {
     return (
      	<span>
-        <FilterButtons data={this.props.data}/>
-        <Filters/>
+        <FilterButtons 
+        reset_filter={this.props.reset_filter}
+        remove_filter={this.props.remove_filter}
+        data={this.props.filters}/>
+        <Filters set_filter={this.props.set_filter1}
+        data={this.props.filters}
+        />
      	</span>
     );
   }

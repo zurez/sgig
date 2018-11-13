@@ -15,7 +15,8 @@ class GigBoxes extends Component {
 	}
 
 	gig_boxes(){
-		return this.props.data.map((e,i)=>{
+		const data=(this.props.data)?this.props.data:[]
+		return data.map((e,i)=>{
 			
 			return (
 				<Grid.Column width={5}>
@@ -29,6 +30,7 @@ class GigBoxes extends Component {
   	console.log({data:this.props.data})
     return (
     	<Grid
+    	stackable
     	columns={3}
     	>
       	{this.gb()}

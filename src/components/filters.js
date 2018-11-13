@@ -19,7 +19,9 @@ class Filters extends Component{
 			this.fetch_filters()
 		}
 	}
-
+	set_filter(tag,element){
+		this.props.set_filter(tag,element)
+	}
 	fetch_filters(){
 		axios.get(`${Config.server}/filter`)
 		.then(filters=>{
@@ -30,15 +32,20 @@ class Filters extends Component{
 	}
 
 	filters(){
+		const data=(this.props.data)?this.props.data:{}
+		const values= [].concat(...Object.values(data))
+    
 		return (
 			this.state.filters.map((e,i)=>{
 				return(
-				<span>
+				<span key={i}>
 				<Header as="h4">{e.name}</Header>
 				{e.elements.map((x,y)=>{
 					return(
 					<Form.Field control={Checkbox}
 					label={x}
+					checked={(values.indexOf(x)!=-1)?true:false}
+					onChange={()=>this.set_filter(e.tag,x)}
 					/>
 					)
 				})}
@@ -50,7 +57,7 @@ class Filters extends Component{
 	}
 	render(){
 		let filters=this.filters()
-		console.log({filters:this.state.filters})
+		
 		return(
 			<div>
 				<Divider/>
