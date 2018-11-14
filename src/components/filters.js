@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import axios from 'axios';
 import Config from './../config';
 import {Form,Header,Checkbox,Divider} from 'semantic-ui-react';
+import './../App.css';
 class Filters extends Component{
 	constructor(props){
 		super(props)

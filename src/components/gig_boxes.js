@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import {Segment,Grid,Pagination} from 'semantic-ui-react';
 
 import GigBox from './gig_box.js';
-
+import './../App.css';
 class GigBoxes extends Component {
 	constructor(props) {
 	  super(props);
@@ -33,7 +33,7 @@ class GigBoxes extends Component {
 			
 			return (
 				<Grid.Column width={5} key={`cl${i}`}>
-				<GigBox data={e} />
+				  <GigBox data={e} className="gigbox"/>
 				</Grid.Column>
 				)
 		})
@@ -75,6 +75,7 @@ class GigBoxes extends Component {
     );
   }
 }
+
 
 
 

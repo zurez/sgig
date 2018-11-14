@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from './components/header';
+import Footer from './components/footer';
 import SearchBar from './components/search_bar';
 import ActionScreen from './components/action_screen';
 import {search} from './controller';
@@ -21,7 +22,9 @@ class App extends Component {
   }
 
   do_search(){
-    
+    if (!this.state.search_query && this.state.search_result.length<1) {
+      return ;
+    }
     search({search_query:this.state.search_query,filters:this.state.filters})
     .then(result=>this.setState({search_result:result}))
     .catch(e=>console.log(e.message))
@@ -54,8 +57,8 @@ class App extends Component {
 
   remove_filter(element){
     let filters=Object.assign({},this.state.filters)
-    const tag = Object.keys(filters).find(key => filters[key] == element);
-    
+    const tag = Object.keys(filters).find(key => filters[key].indexOf(element)!=-1);
+    console.log({tag})
     try{
    
       let elements=filters[tag].filter((e,i)=> e!=element)
@@ -83,6 +86,7 @@ class App extends Component {
         filters={this.state.filters}
         search_result={this.state.search_result}
         />
+        <Footer/>
       </div>
     );	
   }

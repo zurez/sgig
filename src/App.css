@@ -46,3 +46,7 @@
 .header{
 	text-transform: capitalize !important;
 }
+
+.gig_box{
+	padding-bottom:5px !important;
+}
